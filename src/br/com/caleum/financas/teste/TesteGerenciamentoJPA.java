@@ -1,8 +1,13 @@
 package br.com.caleum.financas.teste;
 
+import java.math.BigDecimal;
+import java.util.Calendar;
+
 import javax.persistence.EntityManager;
 
 import br.com.caelum.financas.modelo.Conta;
+import br.com.caelum.financas.modelo.Movimentacao;
+import br.com.caelum.financas.modelo.TipoMovimentacao;
 import br.com.caelum.financas.util.JPAUtil;
 
 public class TesteGerenciamentoJPA {
@@ -14,12 +19,14 @@ public class TesteGerenciamentoJPA {
 		
 		Conta conta = manager.find(Conta.class, 1);
 		
-		manager.getTransaction().commit();
+		Movimentacao movimentacao = new Movimentacao();
+		movimentacao.setData(Calendar.getInstance());
+		movimentacao.setDescricao("Conta de luz");
+		movimentacao.setTipo(TipoMovimentacao.SAIDA);
+		movimentacao.setValor(new BigDecimal("123.3"));
+		movimentacao.setConta(conta);
 		
-		conta.setTitular("Caelum ensino e inovação");
-		
-		manager.getTransaction().begin();
-		manager.merge(conta);
+		manager.persist(movimentacao);
 		manager.getTransaction().commit();
 		
 		manager.close();
