@@ -22,7 +22,7 @@ public class TesteGerenciamentoJPA {
 		Movimentacao movimentacao = new Movimentacao();
 		movimentacao.setData(Calendar.getInstance());
 		movimentacao.setDescricao("Conta de luz");
-		movimentacao.setTipo(TipoMovimentacao.SAIDA);
+		movimentacao.setTipoMovimentacao(TipoMovimentacao.SAIDA);
 		movimentacao.setValor(new BigDecimal("123.3"));
 		movimentacao.setConta(conta);
 		

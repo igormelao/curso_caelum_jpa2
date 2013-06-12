@@ -22,7 +22,7 @@ public class Movimentacao {
 	private BigDecimal valor;
 	
 	@Enumerated(EnumType.STRING)
-	private TipoMovimentacao tipo;
+	private TipoMovimentacao tipoMovimentacao;
 	
 	@Temporal(TemporalType.DATE)
 	private Calendar data;
@@ -48,12 +48,12 @@ public class Movimentacao {
 		this.valor = valor;
 	}
 
-	public TipoMovimentacao getTipo() {
-		return tipo;
+	public TipoMovimentacao getTipoMovimentacao() {
+		return tipoMovimentacao;
 	}
 
-	public void setTipo(TipoMovimentacao tipo) {
-		this.tipo = tipo;
+	public void setTipoMovimentacao(TipoMovimentacao tipoMovimentacao) {
+		this.tipoMovimentacao = tipoMovimentacao;
 	}
 
 	public Calendar getData() {
@@ -79,6 +79,5 @@ public class Movimentacao {
 	public void setConta(Conta conta) {
 		this.conta = conta;
 	}
-	
-	
+
 }
